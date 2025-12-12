@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-/** Credits for Bootstrap
-* Template Name: eBusiness
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/   
-    /**
-     * Easy select helper function
-     */
     const select = (el, all = false) => {
         el = el.trim()
         if (all) {
@@ -17,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return document.querySelector(el)
         }
     }
+
+/** Credits for Bootstrap
+* Template Name: eBusiness
+* Updated: May 30 2023 with Bootstrap v5.3.0
+* Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/   
     
     const updateHeaderUnderline = (activeSectionId) => {
     document.querySelectorAll('header nav a').forEach(a => {
@@ -29,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function (event) {
         const targetId = this.getAttribute('href');
         const targetSection = document.getElementById(targetId);
-
-        // If it's not one of your page sections (ex: #coffee or https://...), don't block it
         if (!targetSection) return;
 
         event.preventDefault();
@@ -43,9 +39,40 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderUnderline(targetId);
     });
     });
-  /**
-   * Hero carousel indicators
-   */
+
+    document.addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (!link) return;
+        if (link.closest('nav')) return;
+
+        let href = link.getAttribute('href');
+        if (!href) return;
+
+        if (href === 'index.html' || href === './index.html') {
+            href = 'home';
+        }
+
+        if (
+            href.startsWith('http') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.startsWith('#')
+        ) {
+            return;
+        }
+
+        const targetSection = document.getElementById(href);
+        if (!targetSection) return;
+
+        event.preventDefault();
+
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        targetSection.classList.add('active');
+        updateHeaderUnderline(href);
+    });
   let heroCarouselIndicators = select("#hero-carousel-indicators")
   let heroCarouselItems = select('#heroCarousel .carousel-item', true)
 
@@ -54,8 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
       heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
   });
-
-    // on load: underline the currently active section in the header
     const activeSection = document.querySelector('.page-section.active');
     if (activeSection) updateHeaderUnderline(activeSection.id);
         
@@ -66,55 +91,50 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (categoryLinks.length > 0 && searchInput) {
         
-        function filterByCategory(category) {
+        function filterByCategory(category, clickedLabel = null) {
             const subcategoryHeaders = document.querySelectorAll('.subcategory-header');
             const menuGrids = document.querySelectorAll('.menu-grid');
             
             if (category.includes('-')) {
                 const [mainCategory, subCategory] = category.split('-');
-                
-                // Show only the matching main category section
+
                 menuSections.forEach(section => {
                     const sectionCategory = section.getAttribute('data-category');
                     if (sectionCategory === mainCategory) {
                         section.style.display = '';
-                        
-                        // Update the category header to show subcategory
+
                         const categoryHeader = section.querySelector('.category-header');
                         if (categoryHeader) {
                             const originalHeader = categoryHeader.getAttribute('data-original') || categoryHeader.textContent;
                             if (!categoryHeader.getAttribute('data-original')) {
                                 categoryHeader.setAttribute('data-original', originalHeader);
                             }
-                            
-                            // Format subcategory name
-                            const formattedSubCategory = subCategory
-                                .split(/(?=[A-Z])/).join(' ')  // Split camelCase
-                                .replace(/-/g, ' ')             // Replace hyphens
-                                .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize
-                            
+
+                            const formattedSubCategory = (clickedLabel && clickedLabel.trim())
+                                ? clickedLabel.trim()
+                                : subCategory
+                                    .split(/(?=[A-Z])/).join(' ')
+                                    .replace(/-/g, ' ')
+                                    .replace(/\b\w/g, l => l.toUpperCase());
+
                             categoryHeader.textContent = `${originalHeader} - ${formattedSubCategory}`;
                         }
                     } else {
                         section.style.display = 'none';
                     }
                 });
-                
-                // Hide all subcategory headers and grids first
+
                 subcategoryHeaders.forEach(header => header.style.display = 'none');
                 menuGrids.forEach(grid => grid.style.display = 'none');
-                
-                // Show only items matching the subcategory and their grids
+
                 menuItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-category');
                     const itemSubcategory = item.getAttribute('data-subcategory');
                     
                     if (itemCategory === mainCategory && itemSubcategory === subCategory) {
                         item.style.display = '';
-                        // Show the parent grid
                         const parentGrid = item.closest('.menu-grid');
                         if (parentGrid) parentGrid.style.display = '';
-                        // Show the preceding subcategory header
                         const prevHeader = parentGrid.previousElementSibling;
                         if (prevHeader && prevHeader.classList.contains('subcategory-header')) {
                             prevHeader.style.display = '';
@@ -124,13 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             } else {
-                // Show all for main category
                 menuSections.forEach(section => {
                     const sectionCategory = section.getAttribute('data-category');
                     if (sectionCategory === category) {
                         section.style.display = '';
-                        
-                        // Restore original header
+
                         const categoryHeader = section.querySelector('.category-header');
                         if (categoryHeader) {
                             const originalHeader = categoryHeader.getAttribute('data-original');
@@ -142,8 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         section.style.display = 'none';
                     }
                 });
-                
-                // Show all subcategory headers and grids for this category
+
                 subcategoryHeaders.forEach(header => header.style.display = '');
                 menuGrids.forEach(grid => grid.style.display = '');
                 
@@ -153,15 +170,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         }
-        
-        // ADD THESE EVENT LISTENERS THAT WERE MISSING:
+
         categoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+
                 const category = this.getAttribute('href').substring(1);
+                const clickedLabel = this.textContent;
                 searchInput.value = '';
-                filterByCategory(category);
+                filterByCategory(category, clickedLabel);
             });
         });
         
@@ -204,8 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             menuSections.forEach(section => {
                 section.style.display = '';
-                
-                // Restore original headers
+
                 const categoryHeader = section.querySelector('.category-header');
                 if (categoryHeader) {
                     const originalHeader = categoryHeader.getAttribute('data-original');
