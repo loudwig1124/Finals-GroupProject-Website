@@ -2,9 +2,15 @@
 <html lang = "en">
     <head>
         <meta charset="UTF-8"> <!-- Character encoding for the document -->
-        <title>Ambiance Café | Brewed for every moments that matter</title>
-        <link rel="stylesheet" href="format.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Consistent rendering on differeng devices-->
+
+        <title>Ambiance Café | Brewed for every moments that matter</title>
+        
+        <link href="animate.css/animate.min.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="format.css">
+
     </head>
     <body>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
@@ -18,8 +24,8 @@
                     </h1>
                     <nav>
                         <div class="left-buttons">
-                            <a href="about">About</a>
                             <a href="menu">Menu</a>
+                            <a href="about">About</a>
                         </div>
                         <div class="right-buttons">
                             <a href="contact">Contact</a>
@@ -27,32 +33,56 @@
                         </div>  
                     </nav>
                 </header>
-                <div class="hero-banner">
-                    <h2>Where Good Coffee Meets Good Vibes.</h2>
-                    <p>Ambiance Café offers specialty brews and a calm space perfect for studying, working, or unwinding.</p>
-                    <nav>
-                        <div class="cta1">
-                            <br>
-                            <a href="about">About Us</a>
-                        </div>
-                    </nav>
+                <div id="hero" class="hero-section">
+                    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(home/homepage-1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Where Good Coffee Meets Good Vibes.</h2>
+                <p class="animate__animated animate__fadeInUp">For Work.</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">About us</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(home/homepage-2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Where Good Coffee Meets Good Vibes.</h2>
+                <p class="animate__animated animate__fadeInUp">For Studying.</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">About us</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(home/homepage-3.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Where Good Coffee Meets Good Vibes.</h2>
+                <p class="animate__animated animate__fadeInUp">For Unwinding.</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">About us</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </button>
+
+      </div>
+    </div>
                 </div>
-                <div class="welcome-section">
-                    <div class="welcome-item">
-                        <div class="welcome-img">
-                            <img class="welcome" src="Espresso.png" alt="Espresso">
-                        </div>
-                        <div class="welcome-text">
-                            <h3>Welcome to Ambiance Café</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quaerat molestias aut fugiat asperiores esse eum dignissimos placeat non suscipit, voluptas perferendis iste. Exercitationem quis veniam similique. Asperiores, cum! Et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis magnam voluptate eos, vitae cum, eius asperiores voluptatibus temporibus sit corrupti, distinctio repellat iusto culpa praesentium. Nobis dolorum amet placeat eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit eligendi doloremque et fugiat adipisci veritatis odit, dolores, tempore recusandae tenetur autem placeat reiciendis accusantium. Tempora ratione illum deleniti ipsum.</p>
-                            <nav>                            
-                                <div class="cta2">
-                                    <a href="menu">Visit Our Menu</a>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="bestseller-section">
                     <div class="bestseller-header">
                         <h2>BEST SELLERS</h2>
@@ -85,7 +115,7 @@
                                     <div class="keypoints-itemtxt">
                                         <h2>Ambiance</h2>
                                         <h3>
-                                            Every coffee is crafted with love and purpose
+                                            Where every coffee matches with the ambiance
                                         </h3>
                                     </div>     
                                 </div>
@@ -94,7 +124,7 @@
                                     <div class="keypoints-itemtxt">
                                         <h2>Coffee</h2>
                                         <h3>
-                                            Where every coffee matches with the ambiance
+                                            Every coffee is crafted with love and purpose
                                         </h3>
                                     </div>   
                                 </div>
@@ -111,7 +141,7 @@
                             </div>
                             <div class="keypoints-last">
                                 <h2>Our Café</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ab rem quam cum illo nam corrupti consequatur vero, itaque nostrum facilis temporibus ratione minima deleniti molestiae animi? Eius, corporis perspiciatis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci repudiandae perspiciatis velit impedit debitis neque porro nulla tempora obcaecati excepturi praesentium, tempore molestias eum. Saepe veritatis quis est voluptates sint!</p>
+                                <p>Coffee is more than a drink, and our café is more than a place to refuel. It's where relationships are built and hearts are warmed. Every cup is crafted with the finest beans, love, and passion to heal and soothe. At Ambiance Cafe, we've perfected the formula: exceptional coffee in a welcoming atmosphere where you can slow down, find comfort, and savor the moment.</p>
                                 <nav>
                                     <div class="keypoints-cta">
                                         <a href="about">Learn more</a>
@@ -122,30 +152,7 @@
                     </div>
                 </div>
                 <footer>
-                    <div class="mainlogo">
-                        <h1>Ambiance Café</h1>
-                    </div>
-                    <div class="footer-options">
-                        <h2>About Us</h2>
-                        <h3>Our Story</h3>
-                        <h3>Mission & Vison</h3>
-                        <h3>Our Values</h3>
-                        <h3>Customer Service</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Menu</h2>
-                        <h3>Coffee</h3>
-                        <h3>Non-Coffee</h3>
-                        <h3>Pastries</h3>
-                        <h3>Others</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Join Our Crew</h2>
-                    </div>
-                    <div class="footer-copyright"><p>© 2025 Ambiance Café. All rights reserved.</p></div>
+                    <div class="footer-copyright"><p>© 2025 <strong>Ambiance Café</strong>. All rights reserved.</p></div>
                 </footer>
 
             </section>
@@ -159,8 +166,8 @@
                     </h1>
                     <nav>
                         <div class="left-buttons">
-                            <a href="about">About</a>
                             <a href="menu">Menu</a>
+                            <a href="about">About</a>
                         </div>
                             <div class="right-buttons">
                             <a href="contact">Contact</a>
@@ -168,17 +175,13 @@
                         </div>  
                     </nav>
                 </header>
-                <div class="hero-banner">
-                    <h1>About Ambiance Café</h1>
-                    <p>Every coffee served tells a story.</p>
-                </div>
                 <div class="welcome-section">
                     <div class="welcome-item">
                         <div class="welcome-img">
                             <img class="welcome" src="peoplewithcoffee.jpeg" alt="Cafe Interior">
                         </div>
                         <div class="welcome-text">
-                            <h3>Our Story</h3>
+                            <h3><strong>Our Story</strong></h3>
                             <p> 
                                 Ambiance Café started as a small café business where people can enjoy
                                 brewed, handcrafted coffee in a space of comfort and can also build connections.
@@ -214,10 +217,14 @@
                         </div>
                     </div>
                 <div class="keypoints-last">
-                    <h3>Mission & Vision<h3>
+                    <h3>Mission</h3>
                         <p> 
-                            To create coffee that is high-quality, enjoys comfort, and build connections.
+                            To create exceptional coffee that brings people together. We are committed to crafting each cup with passion and expertise, ensuring every customer feels comfortable and connected.
                         </p>
+                    <h3>Vision</h3>
+                        <p> 
+                            To be the neighborhood's gathering place where connections and relationships are built, and memorable moments are created together.
+                        </p>                        
                         <nav>
                             <div class="keypoints-cta">
                                 <a href="menu">Explore Our Menu</a>
@@ -225,30 +232,7 @@
                         </nav>
                     </div>
                 <footer>
-                    <div class="mainlogo">
-                        <h1>Ambiance Café</h1>
-                    </div>
-                    <div class="footer-options">
-                        <h2>About Us</h2>
-                        <h3>Our Story</h3>
-                        <h3>Mission & Vison</h3>
-                        <h3>Our Values</h3>
-                        <h3>Customer Service</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Menu</h2>
-                        <h3>Coffee</h3>
-                        <h3>Non-Coffee</h3>
-                        <h3>Pastries</h3>
-                        <h3>Others</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Join Our Crew</h2>
-                    </div>
-                    <div class="footer-copyright"><p>© 2025 Ambiance Café. All rights reserved.</p></div>
+                    <div class="footer-copyright"><p>© 2025 <strong>Ambiance Café</strong>. All rights reserved.</p></div>
                 </footer>
             </section>
 
@@ -261,8 +245,8 @@
                     </h1>
                     <nav>
                         <div class="left-buttons">
-                            <a href="about">About</a>
                             <a href="menu">Menu</a>
+                            <a href="about">about</a>
                         </div>
                         <div class="right-buttons">
                         <a href="contact">Contact</a>
@@ -270,11 +254,7 @@
                         </div>  
                     </nav>
                 </header>
-                <div class="menu-banner">
-                    <div class="menu-bannertxt">
-                        <h2>AMBIANCE CAFE: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure maxime, cumque temporibus iste quasi eligendi eum corporis, sed consectetur quas sit accusantium esse architecto debitis et molestiae officia. Incidunt, sequi!</h2>
-                    </div>
-                </div>
+                
                 <div class="menu-container">
                     <div class="menu-header">
                         <h2>Our Menu</h2>
@@ -457,7 +437,7 @@
                                     <div class="menu-item" data-category="coffee" 
                                     data-subcategory="coldbrewed" data-name="vanilla sweet cream cold brew">
                                         <img src="coffee/cold brewed/Vanilla Sweet Cream Cold Brew.jpg" alt="Vanilla Sweet Cream Cold Brew">
-                                        <h3>Vanilla Sweet Cream Cold Brew</h3>
+                                        <h3>VSC Cold Brew</h3>
                                         <p>Cold brew with velvety vanilla sweet cream</p>
                                     </div>                           
 
@@ -671,35 +651,12 @@
                     </div>
                 </div>
                 <footer>
-                    <div class="mainlogo">
-                        <h1>Ambiance Café</h1>
-                    </div>
-                    <div class="footer-options">
-                        <h2>About Us</h2>
-                        <h3>Our Story</h3>
-                        <h3>Mission & Vison</h3>
-                        <h3>Our Values</h3>
-                        <h3>Customer Service</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Menu</h2>
-                        <h3>Coffee</h3>
-                        <h3>Non-Coffee</h3>
-                        <h3>Pastries</h3>
-                        <h3>Others</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Join Our Crew</h2>
-                    </div>
-                    <div class="footer-copyright"><p>© 2025 Ambiance Café. All rights reserved.</p></div>
+                    <div class="footer-copyright"><p>© 2025 <strong>Ambiance Café</strong>. All rights reserved.</p></div>
                 </footer>
                 
             </section>
 
-            <section id="contact" class="page-section">
+             <section id="contact" class="page-section">
                 <header>        
                     <h1 class ="logo">
                         <a href="index.html">
@@ -708,8 +665,8 @@
                     </h1>
                     <nav>
                         <div class="left-buttons">
-                            <a href="about">About</a>
                             <a href="menu">Menu</a>
+                            <a href="about">About</a>
                         </div>
                         <div class="right-buttons">
                         <a href="contact">Contact</a>
@@ -718,10 +675,9 @@
                     </nav>
                 </header>
                 <div class="contact-first">
-                    <h1>CONTACT US</h1>
                     <div class="contact-content">
                         <div class="contact-section">
-                            <h2>Follow Us</h2>
+                            <h2>FOLLOW US</h2>
                             <div class="social-links">
                                 <a href="https://www.facebook.com/profile.php?id=61585149981605" title="Facebook" class="social-icon facebook">
                                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
@@ -735,46 +691,22 @@
                             </div>
                         </div>
                         <div class="contact-section">
-                            <h2>Email</h2>
+                            <h2>EMAIL</h2>
                             <div class="email-display">
-                                <span class="email-icon">✉️</span>
-                                <p class="email-text">ambiancecafe@email.com</p>
+                                <p class="email-text">ambiancecafecavite@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-section">
-                            <h2>Phone Numbers</h2>
+                            <h2>PHONE NUMBERS</h2>
                             <div class="phone-display">
-                                <p class="phone-item">📞 +63 (676) 123-4567</p>
-                                <p class="phone-item">📞 +63 (948) 765-4321</p>
+                                <p class="phone-item">+63 (676) 123-4567</p>
+                                <p class="phone-item">+63 (948) 765-4321</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <footer>
-                    <div class="mainlogo">
-                        <h1>Ambiance Café</h1>
-                    </div>
-                    <div class="footer-options">
-                        <h2>About Us</h2>
-                        <h3>Our Story</h3>
-                        <h3>Mission & Vison</h3>
-                        <h3>Our Values</h3>
-                        <h3>Customer Service</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Menu</h2>
-                        <h3>Coffee</h3>
-                        <h3>Non-Coffee</h3>
-                        <h3>Pastries</h3>
-                        <h3>Others</h3>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="footer-options">
-                        <h2>Join Our Crew</h2>
-                    </div>
-                    <div class="footer-copyright"><p>© 2025 Ambiance Café. All rights reserved.</p></div>
+                    <div class="footer-copyright"><p>© 2025 <strong>Ambiance Café</strong>. All rights reserved.</p></div>
                 </footer>
 
             </section>
@@ -788,8 +720,8 @@
                     </h1>
                     <nav>
                         <div class="left-buttons">
-                            <a href="about">About</a>
                             <a href="menu">Menu</a>
+                            <a href="about">About</a>
                         </div>
                         <div class="right-buttons">
                         <a href="contact">Contact</a>
@@ -802,6 +734,7 @@
                 </div>
             </section>
         </main>
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="index.js"></script>
     </body>
 </html>

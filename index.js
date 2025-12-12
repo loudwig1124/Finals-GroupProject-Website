@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+/** Credits for Bootstrap
+* Template Name: eBusiness
+* Updated: May 30 2023 with Bootstrap v5.3.0
+* Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/   
+    /**
+     * Easy select helper function
+     */
+    const select = (el, all = false) => {
+        el = el.trim()
+        if (all) {
+            return [...document.querySelectorAll(el)]
+        } else {
+            return document.querySelector(el)
+        }
+    }
     
     const updateHeaderUnderline = (activeSectionId) => {
     document.querySelectorAll('header nav a').forEach(a => {
@@ -25,6 +43,17 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderUnderline(targetId);
     });
     });
+  /**
+   * Hero carousel indicators
+   */
+  let heroCarouselIndicators = select("#hero-carousel-indicators")
+  let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+
+  heroCarouselItems.forEach((item, index) => {
+    (index === 0) ?
+    heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+  });
 
     // on load: underline the currently active section in the header
     const activeSection = document.querySelector('.page-section.active');
