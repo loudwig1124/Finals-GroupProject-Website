@@ -5,6 +5,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +51,7 @@ body {
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 h1 {
-    font-family: var(--font-heading);
+    font-family: var(--font-primary);
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
 }
@@ -191,12 +192,15 @@ header nav a.nav-current {
     overflow-x: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease; 
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 .page-section.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease, visibility 0s;
 }
 /*#endregion PAGE SECTION*/
 
@@ -649,57 +653,67 @@ header nav a.nav-current {
 /*#region FOOTER*/
 footer {
     border-top: 1px solid black;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
     padding: 20px;
-    height: 250px;
     background-color: #D1BB9E;
 }
 
-.mainlogo {
-    padding: 30px;
-}
-
-.footer-options {
+.footer-top {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.footer-options h2 {
-    font-weight: bold;
-    color: #000000;
-    padding: 2px 0;
-    font-size: 30px;
+.footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.footer-options h3 {
-    font-weight: 200;
-    color: #ffffff;
-    padding: 2px 0
+.footer-logo {
+    width: 180px;
+    height: 80px;
+    object-fit: cover;
+    background-color: #2b1b0f;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+footer .social-links {
+    gap: 16px;
+    justify-content: center;
+}
+
+.footer-contact-numbers {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+footer .social-icon {
+    width: 52px;
+    height: 52px;
+}
+
+footer .social-icon svg {
+    width: 28px;
+    height: 28px;
 }
 
 .footer-copyright {
     text-align: center;
-    grid-column: 1 / -1;
     font-size: small;
-    background-color: #D1BB9E;
-}
-
-.footer-copyright {
-  grid-column: 1 / -1;
-  background-color: #D1BB9E;  /* same as footer */
-  margin-left: -20px;
-  margin-right: -20px;
-  margin-bottom: 0;
-  padding: 12px 20px;         /* put padding back on the bar */
-  margin-top: -20px;
+    margin-top: 12px;
 }
 /*#endregion FOOTER*/
 /*#endregion HOME PAGE*/
 
 /*#region MENU PAGE*/
-/*
+
 .menu-banner {
     position: relative;
     max-width: 100%;
@@ -1138,3 +1152,61 @@ footer {
 }
 
 /* endregion About Page */
+
+/* Contact Background */
+.contact-content {
+    max-width: 900px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,241,232,0.95));
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(34,34,34,0.08); 
+}
+/*#endregion CONTACT SECTION*/
+
+.join-crew-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.join-crew-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.join-crew-content input,
+.join-crew-content select,
+.join-crew-content textarea,
+.join-crew-content button {
+    box-sizing: border-box;     
+    width: 450px;               
+    padding: 10px;
+    font-size: var(--font-size-base);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.join-crew-content textarea {
+    height: 100px;
+}
+
+.join-crew-content button {
+    background-color: #A79277;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.join-crew-content button:hover {
+    background-color: #8B725E;
+}
+
