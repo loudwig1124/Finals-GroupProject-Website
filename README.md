@@ -1,6 +1,10 @@
 # Ambiance Café Website
 Website for Ambiance Café, where good coffee meets good vibes.
 
+![HomepageSS1](https://github.com/005-exe/Finals-GroupProject-Website/blob/main/HomepageSS1.png)
+![HomepageSS2](https://github.com/005-exe/Finals-GroupProject-Website/blob/main/HomepageSS2.png)
+![HomepageSS3](https://github.com/005-exe/Finals-GroupProject-Website/blob/main/HomepageSS3.png)
+
 ## Overview:
 
 ### Home Page:
@@ -66,3 +70,4 @@ Website for Ambiance Café, where good coffee meets good vibes.
 - Bootstrap 5.3.0
 - Bootstrap Icons
 - Animate.css
+
